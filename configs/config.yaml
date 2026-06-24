@@ -1,0 +1,89 @@
+# change the project root directory if using colab
+# e.g., "/content/drive/MyDrive/gnn"
+project_root_dir: .
+
+seed: 42
+
+preprocessing:
+  dataset_folder: data
+  dataset_name: CU # CU or BRE
+  val_ratio: 0.1
+  actors_timelines:
+    actor1_t1_start: "2022-10-18 00:00:00"
+    actor1_t1_end: "2022-11-07 23:59:59"
+    actor2_start: "2022-11-08 00:00:00"
+    actor2_end: "2022-11-10 23:59:59"
+    actor1_t2_start: "2022-11-11 00:00:00"
+    actor1_t2_end: "2022-11-17 23:59:59"
+
+models:
+  - name: "lstm_ae"
+    enabled: true
+    params:
+      hidden_dim: 128
+      latent_dim: 64
+      num_layers: 1
+
+  - name: "lstm_vae"
+    enabled: true
+    params:
+      hidden_dim: 128
+      latent_dim: 32
+      beta: 0.001
+
+  - name: "usad"
+    enabled: true
+    params:
+      latent_dim: 128
+
+  - name: "omni_anomaly"
+    enabled: true
+    params:
+      hidden_dim: 128
+      latent_dim: 32
+      beta: 0.001
+
+  - name: "dagmm1"
+    enabled: true
+    params:
+      latent_dim: 16
+      n_gmm: 4
+
+  - name: "dagmm2"
+    enabled: true
+    params:
+      latent_dim: 16
+      n_gmm: 4
+      lambda_energy: 0.1
+      lambda_cov: 0.005
+
+  - name: "gdn"
+    enabled: true
+    params:
+      hidden_dim: 64
+      topk: 15 # previously 15
+      heads: 1
+
+  - name: "mtad_gat"
+    enabled: true
+    params:
+      kernel_size: 5
+      gru_hidden_dim: 100 # 100 prev
+      gat_heads: 2 # 2 prev
+
+training:
+  model: vgcrn1
+  window_size: 30
+  batch_size: 32
+  epochs: 50
+  lr: 0.0001
+  patience: 10
+
+evaluation:
+  model: vgcrn1
+  batch_size: 32
+  score_aggregation: topk # mean, max, mean_max, topk
+  topk_devices: 3
+  score_smoothing_enabled: true
+  score_smoothing_window: 5
+  threshold_percentile: 90

@@ -1,0 +1,80 @@
+{
+  "total_devices": 32,
+
+  "contact_sensors": {
+    "count": 4,
+    "devices": [
+      "binary_sensor.smartthings_contact_sensor_pid_003_contact",
+      "binary_sensor.smartthings_contact_sensor_pid_004_contact",
+      "binary_sensor.smartthings_contact_sensor_pid_006_contact",
+      "binary_sensor.xiaomi_contact_sensor_pid_136_contact"
+    ]
+  },
+
+  "motion_sensors": {
+    "count": 4,
+    "devices": [
+      "binary_sensor.xiaomi_motion_sensor_kitchen_occupancy",
+      "binary_sensor.xiaomi_motion_sensor_workarea_occupancy",
+      "binary_sensor.aqara_motion_sensor_pid_075_occupancy",
+      "binary_sensor.hue_motion_sensor_1_motion"
+    ]
+  },
+
+  "vibration_sensors": {
+    "count": 3,
+    "devices": [
+      "binary_sensor.aqara_vibration_sensor_pid_077_vibration",
+      "binary_sensor.vibration_sensor_pid_078_vibration",
+      "binary_sensor.aqara_vibration_sensor_pid_079_vibration"
+    ]
+  },
+
+  "kasa_smart_plugs": {
+    "count": 8,
+    "devices": [
+      "switch.kasa_017",
+      "switch.kasa_018",
+      "switch.kasa_019",
+      "switch.kasa_020",
+      "switch.kasa_021",
+      "switch.kasa_022",
+      "switch.kasa_023",
+      "switch.kasa_024"
+    ]
+  },
+
+  "temperature_sensors": {
+    "count": 4,
+    "devices": [
+      "sensor.aqara_temperature_and_humidity_pid_071_temperature",
+      "sensor.aqara_temperature_and_humidity_pid_072_temperature",
+      "sensor.aqara_temperature_and_humidity_pid_073_temperature",
+      "sensor.aqara_temperature_and_humidity_pid_074_temperature"
+    ]
+  },
+
+  "lights": {
+    "count": 3,
+    "devices": [
+      "light.hue_light_bulb_pid_040",
+      "light.hue_lightstrip_plus_pid_146",
+      "light.053_lumiman_smart_bulb_2"
+    ]
+  },
+
+  "smart_appliances": {
+    "count": 4,
+    "devices": [
+      "media_player.echo_dot_013",
+      "climate.millheat_113",
+      "switch.kettle_start",
+      "humidifier.mi_smart_antibacterial_humidifier"
+    ]
+  },
+
+  "purifier": {
+    "count": 2,
+    "devices": ["sensor.mi_air_purifier_3_3h_pm2_5", "fan.mi_air_purifier_3_3h"]
+  }
+}
